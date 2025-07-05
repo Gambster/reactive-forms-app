@@ -44,7 +44,6 @@ export class DynamicPageComponent {
   }
 
   onDeleteFavorite(index: number) {
-    console.log({ index });
     this.favoriteGames.removeAt(index);
   }
 
