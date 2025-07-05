@@ -63,6 +63,8 @@ export class FormUtils {
           return 'El valor ingresado no es un correo electrónico';
         case 'emailTaken':
           return 'El correo electrónico ya está siendo usado por otro usuario';
+        case 'noStrider':
+          return 'El nombre de usuario no puede ser "strider"';
         case 'pattern':
           if (errors['pattern'].requiredPattern === FormUtils.emailPattern) {
             return 'El valor ingresado no luce como un correo electrónico';
@@ -101,6 +103,18 @@ export class FormUtils {
         emailTaken: true,
       };
     }
+
+    return null;
+  }
+
+  static notStrider(control: AbstractControl): ValidationErrors | null {
+    //no puede poner el username 'strider': {"noStrider": true}
+    const formValue = control.value;
+
+    if (formValue === 'strider')
+      return {
+        noStrider: true,
+      };
 
     return null;
   }
